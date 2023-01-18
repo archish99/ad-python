@@ -76,6 +76,11 @@ WSGI_APPLICATION = 'Glimpse.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# if Heroku server
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
