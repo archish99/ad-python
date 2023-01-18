@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="628328dc-e3fc-430d-a77e-efb143417e65" name="glimpse">
+        <fileTransfer accessType="SFTP" host="glimpse.cyberpanel.net" port="22" sshConfigId="c4fdf790-3cab-487d-9874-fd0d391c20f3" sshConfig="glimp7701@glimpse.cyberpanel.net:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

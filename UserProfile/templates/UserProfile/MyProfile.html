@@ -1,0 +1,312 @@
+{% extends "BaseTemplates/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Home - Escrowpp" %}{% endblock %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+
+<div ng-controller="userProfile">
+
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                            <li class="breadcrumb-item active">Profile 2</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Profile 2</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        {% if uploaded_file %}
+        <p class="external-event bg-success-lighten text-success" data-class="bg-success">File uploaded successfully</p>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img ng-src="{$ Dpimage $}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+
+                        <h4 class="mb-0 mt-2">{$ Firstname $} {$ LastName $}</h4>
+
+                        <button data-bs-toggle="modal" data-bs-target="#ChangeDPmodals" type="button"
+                                class="btn btn-secondary btn-sm mb-2">Eidt Profile Picture
+                        </button>
+
+                        <!--------------------Start DP change Modal ----------->
+                        <div class="modal fade" id="ChangeDPmodals" tabindex="-1" role="dialog"
+                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-hidden="true"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <input type="file" name="myfile">
+                                            <button type="button" onclick="this.form.submit()">Upload</button>
+                                        </form>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <div class="text-start mt-3">
+                            <h4 class="font-13 text-uppercase">About Me :</h4>
+                            <p class="text-muted font-13 mb-3">{$ DiplayBio $}</p>
+
+
+                            <p class="text-muted mb-2 font-13"><strong>Mobile :</strong><span class="ms-2">
+                                {$ userphone$} </span></p>
+
+                            <p class="text-muted mb-2 font-13"><strong>Company Name :</strong> <span
+                                    class="ms-2 ">{$ companyname $}</span></p>
+
+                            <p class="text-muted mb-1 font-13"><strong>category :</strong> <span
+                                    class="ms-2">{$ category $}</span></p>
+                            <p class="text-muted mb-1 font-13"><strong>Website :</strong> <span class="ms-2">
+                                {$ userwebsite $}</span></p>
+                        </div>
+
+                        <ul class="social-list list-inline mt-3 mb-0">
+                            <li class="list-inline-item">
+                                <a href="{$ FacebookURL $}" target="_blank" class="social-list-item border-primary text-primary"><i
+                                        class="mdi mdi-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{$ TwitterURL $}" class="social-list-item border-danger text-danger"><i
+                                        class="mdi mdi-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{$ InstagramURL $}" class="social-list-item border-info text-info"><i
+                                        class="mdi mdi-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{$ LinkedinURL $}" style="border-color: #0072b1; color: #0072b1"
+                                   class="social-list-item"><i class="mdi mdi-linkedin"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{$ SkypeURL $}" style="border-color: #00aff0; color: #00aff0"
+                                   class="social-list-item"><i class="mdi mdi-skype"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{$ GithubURL $}" class="social-list-item border-secondary text-secondary"><i
+                                        class="mdi mdi-github"></i></a>
+                            </li>
+                        </ul>
+                    </div> <!-- end card-body -->
+                </div> <!-- end card -->
+
+
+            </div> <!-- end col-->
+
+            <div class="col-xl-8 col-lg-7">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-pills bg-nav-pills nav-justified mb-3">
+                            <li class="nav-item">
+                                <a href="#aboutme" data-bs-toggle="tab" aria-expanded="false"
+                                   class="nav-link rounded-0 active">
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#settings" data-bs-toggle="tab" aria-expanded="false"
+                                   class="nav-link rounded-0">
+                                    Settings
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="aboutme">
+
+
+                            </div> <!-- end tab-pane -->
+                            <!-- end about me section content -->
+                            <div class="tab-pane" id="settings">
+                                <form>
+                                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Personal
+                                        Info</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="firstname" class="form-label">FirstName</label>
+                                                <input type="text" ng-model="Firstname" class="form-control"
+                                                       id="firstname">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="lastname" class="form-label">Last Name</label>
+                                                <input ng-model="LastName" type="text" class="form-control"
+                                                       id="lastname">
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="userbio" class="form-label">Bio</label>
+                                                <textarea ng-model="DiplayBio" class="form-control" id="userbio"
+                                                          rows="4" placeholder="Write something..."></textarea>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="useremail" class="form-label">Email Address</label>
+                                                <input ng-model="useremail" readonly type="email" class="form-control"
+                                                       id="useremail" placeholder="Enter email">
+                                                <span class="form-text text-muted"><small>If you want to change email please <a
+                                                        href="javascript: void(0);">click</a> here.</small></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="userpassword" class="form-label">Phone</label>
+                                                <input ng-model="userphone" type="text" class="form-control"
+                                                       id="userpassword">
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i
+                                            class="mdi mdi-office-building me-1"></i> Company Info</h5>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="example-select" class="form-label">Select type</label>
+                                                <select ng-model="category" class="form-select" id="example-select">
+                                                    <option>software</option>
+                                                    <option>IT</option>
+                                                    <option>abc</option>
+                                                    <option>xyz</option>
+                                                    <option>knasasalds</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="companyname" class="form-label">Company Name</label>
+                                                <input ng-model="companyname" type="text" class="form-control"
+                                                       id="companyname" placeholder="Enter company name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="cwebsite" class="form-label">Website</label>
+                                                <input ng-model="userwebsite" type="text" class="form-control"
+                                                       id="cwebsite" placeholder="Enter website url">
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-earth me-1"></i>
+                                        Social</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-fb" class="form-label">Facebook</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="mdi mdi-facebook"></i></span>
+                                                    <input ng-model="Facebook" type="text" class="form-control"
+                                                           id="social-fb" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-tw" class="form-label">Twitter</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="mdi mdi-twitter"></i></span>
+                                                    <input ng-model="Twitter" type="text" class="form-control"
+                                                           id="social-tw" placeholder="Username">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-insta" class="form-label">Instagram</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="mdi mdi-instagram"></i></span>
+                                                    <input ng-model="Instagram" type="text" class="form-control"
+                                                           id="social-insta" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-lin" class="form-label">Linkedin</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="mdi mdi-linkedin"></i></span>
+                                                    <input ng-model="Linkedin" type="text" class="form-control"
+                                                           id="social-lin" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-sky" class="form-label">Skype</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-skype"></i></span>
+                                                    <input ng-model="Skype" type="text" class="form-control"
+                                                           id="social-sky" placeholder="@username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-gh" class="form-label">Github</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-github"></i></span>
+                                                    <input ng-model="Github" type="text" class="form-control"
+                                                           id="social-gh" placeholder="Username">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="text-end">
+                                        <button type="button" ng-click="saveProfileData()" class="btn btn-success mt-2">
+                                            <i class="mdi mdi-content-save"></i> Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end settings content-->
+
+                        </div> <!-- end tab-content -->
+                    </div> <!-- end card body -->
+                </div> <!-- end card -->
+            </div> <!-- end col -->
+        </div>
+        <!-- end row-->
+
+    </div>
+</div>
+{% endblock %}

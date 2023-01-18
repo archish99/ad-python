@@ -1,0 +1,1 @@
+web: gunicorn Glimpse.wsgi --log-file -

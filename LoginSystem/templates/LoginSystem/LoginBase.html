@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EscrowApplogin">
+<head>
+    <meta charset="utf-8"/>
+    <title>Log In | Glimpse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="An app that aggregates marketing data from all sources and presents information to company executives to identify best performing channels." name="description"/>
+    <meta content="Glimpse" name="author"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+
+    <!-- App css -->
+    {% load static %}
+    <!--    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>-->
+    <script src="{% static 'BaseTemplates/angularjs.1.6.5.js' %}"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link href="{% static 'BaseTemplates/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'BaseTemplates/assets/css/app.min.css' %}" rel="stylesheet" type="text/css" id="app-style"/>
+
+
+    <script src="{% static 'BaseTemplates/angularjs.1.6.5.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="{% static 'BaseTemplates/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'BaseTemplates/assets/css/app.min.css' %}" rel="stylesheet" type="text/css" id="app-style"/>
+
+</head>
+<body class="loading authentication-bg" data-layout-config='{"darkMode":false}'>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=583833066553737&autoLogAppEvents=1" nonce="OG4X2vFB"></script>
+
+{% block logincontent %}
+{% endblock %}
+
+<!-- end page -->
+
+<footer class="footer footer-alt">
+    2018 -
+    <script>document.write(new Date().getFullYear())</script>
+    © Hyper - Coderthemes.com
+</footer>
+
+<!-- bundle -->
+<script src="{% static 'BaseTemplates/assets/js/vendor.min.js' %}"></script>
+<script src="{% static 'BaseTemplates/assets/js/app.min.js' %}"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>-->
+<!-- TODO: Step 1: Include Fortmatic SDK Script -->
+<!--<script src="https://cdn.jsdelivr.net/npm/fortmatic@latest/dist/fortmatic.js"></script>-->
+<!--&lt;!&ndash;<script src="https://unpkg.com/@walletconnect/client@1.8.0/dist/umd/index.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://unpkg.com/@walletconnect/qrcode-modal@1.8.0/dist/umd/index.min.js"></script>&ndash;&gt;-->
+<!--<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.4/dist/index.js"></script>-->
+<!--<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.6.6/dist/umd/index.min.js"></script>-->
+<!--<script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>-->
+<!--<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>-->
+<script type="text/javascript" src="https://unpkg.com/web3@1.6.0/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.4/dist/index.js"></script>
+<script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.6.6/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+<script type="text/javascript" src="{% static 'BaseTemplates/walletlink.bundle.js' %}"></script>
+<script type="module" src="{% static 'LoginSystem/login.js' %}"></script>
+
+</body>
+</html>

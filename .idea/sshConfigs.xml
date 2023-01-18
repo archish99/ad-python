@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="glimpse.cyberpanel.net" id="c4fdf790-3cab-487d-9874-fd0d391c20f3" keyPath="$USER_HOME$/.ssh/id_rsa" port="22" nameFormat="DESCRIPTIVE" username="glimp7701" />
+    </configs>
+  </component>
+</project>

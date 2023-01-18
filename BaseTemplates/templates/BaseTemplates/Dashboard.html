@@ -1,0 +1,13 @@
+{% extends "BaseTemplates/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Home - Escrowpp" %}{% endblock %}
+{% block content %}
+
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
+
+    <div ng-controller="GoogleAds">
+        <h2>Glimpse</h2>
+        <button class="btn btn-primary my-2" ng-click="GoogleAdsAuth()">Connect Google Ad</button>
+    </div>
+{% endblock %}
